@@ -6,12 +6,18 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "generate": "nuxt generate",
+    "httpserver": "http-server ./dist"
   },
   "dependencies": {
     "bootstrap": "^4.5.0",
     "bootstrap-vue": "^2.15.0",
-    "nuxt": "^2.14.0"
+    "html2canvas": "^1.0.0-rc.5",
+    "http-server": "^0.12.3",
+    "jspdf": "^1.5.3",
+    "jspdf-autotable": "^3.5.6",
+    "nuxt": "^2.14.0",
+    "pdfmake": "^0.1.67"
   },
   "devDependencies": {}
 }
