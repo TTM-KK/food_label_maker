@@ -1,6 +1,14 @@
 # Food Label PDF Generator
 
+入力画面
 ![Image of label maker](static/image/food_label.PNG)
+
+プレビュー
+![image of preview](static/image/preview_label.PNG)
+
+PDF
+![image of pdf](static/image/pdf_label.PNG)
+
 
 ## Build Setup
 
