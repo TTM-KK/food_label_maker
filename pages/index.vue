@@ -6,17 +6,33 @@
         <input v-model="productName" />
         <p>Preview : {{this.productName}}</p>
 
-        <div class="title title__decoration">原材料名</div>
-        <div class="sub__title">1段目</div>
+        <div class="title title__decoration">
+          原材料名
+          <span class="sub__title__sub">1列に付き22文字まで。</span>
+        </div>
+        <div class="sub__title">
+          1段目
+          <span class="sub__title__sub">文字数 {{this.productIngredientsOne.length }}</span>
+        </div>
         <input v-model="productIngredientsOne" />
         <p>Preview : {{ this.productIngredientsOne }}</p>
-        <div class="sub__title">2段目</div>
+
+        <div class="sub__title">
+          2段目
+          <span class="sub__title__sub">文字数 {{this.productIngredientsSecond.length }}</span>
+        </div>
         <input v-model="productIngredientsSecond" />
         <p>Preview : {{ this.productIngredientsSecond }}</p>
-        <div class="sub__title">3段目</div>
+        <div class="sub__title">
+          3段目
+          <span class="sub__title__sub">文字数 {{this.productIngredientsThird.length }}</span>
+        </div>
         <input v-model="productIngredientsThird" />
         <p>Preview : {{ this.productIngredientsThird }}</p>
-        <div class="sub__title">4段目</div>
+        <div class="sub__title">
+          4段目
+          <span class="sub__title__sub">文字数 {{this.productIngredientsFourth.length }}</span>
+        </div>
         <input v-model="productIngredientsFourth" />
         <p>Preview : {{ this.productIngredientsFourth }}</p>
       </div>
@@ -24,6 +40,10 @@
         <div class="title title__decoration">保存方法</div>
         <input v-model="productSave" />
         <p>Preview : {{this.productSave}}</p>
+
+        <div class="title title__decoration">賞味期限</div>
+        <input v-model="productLimit" />
+        <p>Preview : {{this.productLimit}}</p>
 
         <div class="title title__decoration">製造者</div>
         <div class="sub__title">1段目</div>
@@ -70,7 +90,14 @@ export default {
       productSave: "",
       productOwnerOne: "",
       productOwnerSecond: "",
+      productLimit: "",
     };
+  },
+
+  computed: {
+    stringCounter(text) {
+      return text.length;
+    },
   },
 
   // 参考　https://www.it-swarm.dev/ja/javascript/html-canvas%E3%82%92gifjpgpngpdf%E3%81%A8%E3%81%97%E3%81%A6%E3%82%AD%E
@@ -159,6 +186,11 @@ export default {
               232 + height * j
             );
             context.fillText(
+              this.productLimit,
+              160 + width * i,
+              277 + height * j
+            );
+            context.fillText(
               this.productOwnerOne,
               160 + width * i,
               322 + height * j
@@ -205,6 +237,12 @@ export default {
 .sub__title {
   font-size: 20px;
 }
+
+.sub__title__sub {
+  font-size: 14px;
+  color: #646464;
+}
+
 .title__decoration {
   border-bottom: solid 1px #c0c0c0;
   margin-bottom: 20px;
