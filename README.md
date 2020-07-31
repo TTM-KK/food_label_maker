@@ -1,4 +1,9 @@
 # Food Label PDF Generator
+食品表示ラベルを作成するためのプログラムです。
+印刷の用紙サイズはA4を想定し作成しています。
+
+
+こちらのプログラムを使用して作成した食品表示ラベルに関する問題につきましては当方では一切の責任を負いかねますので、ご了承をお願いいたします。
 
 ### 入力画面
 enter the info. Food Label PDF Generator is intended to use food label making.
