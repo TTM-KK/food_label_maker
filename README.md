@@ -1,6 +1,6 @@
 # Food Label PDF Generator
 
-![Image of label maker](static/image/food_label.png)
+![Image of label maker](static/image/food_label.PNG)
 
 ## Build Setup
 
