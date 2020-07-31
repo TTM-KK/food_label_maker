@@ -1,5 +1,7 @@
 # Food Label PDF Generator
 
+![Image of label maker](/static/image/food_label.png)
+
 ## Build Setup
 
 ```bash
