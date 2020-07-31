@@ -2,14 +2,17 @@
 
 ### 入力画面
 enter the info. Food Label PDF Generator is intended to use food label making.
+
 ![Image of label maker](static/image/food_label.PNG)
 
 ### プレビュー
 click "Previw". You can previw pdf label output image.
+
 ![image of preview](static/image/preview_label.PNG)
 
 ### PDF
 click "Download". You can download pdf file.
+
 ![image of pdf](static/image/pdf_label.PNG)
 
 
