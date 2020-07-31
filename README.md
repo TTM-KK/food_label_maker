@@ -1,4 +1,4 @@
-# food_label_maker
+# Food Label PDF Generator
 
 ## Build Setup
 
