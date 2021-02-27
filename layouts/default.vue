@@ -4,11 +4,36 @@
       <div class="header__title container">
         Food Label
         <span class="header__sub__text">PDF</span> Generator
+        <div v-if="isHorizon" class="header__link">
+          <span style="font-size: 20px">横型</span>
+          <nuxt-link to="/vertical" style="padding-left: 30px"
+            >縦型へ切り替え</nuxt-link
+          >
+        </div>
+        <div v-if="isVertical" class="header__link">
+          <span style="font-size: 20px">縦型</span>
+          <nuxt-link to="/" style="padding-left: 30px"
+            >横型へ切り替え</nuxt-link
+          >
+        </div>
       </div>
     </div>
     <Nuxt />
   </div>
 </template>
+
+<script>
+export default {
+  computed: {
+    isVertical() {
+      return this.$route.path == "/vertical";
+    },
+    isHorizon() {
+      return this.$route.path == "/";
+    },
+  },
+};
+</script>
 
 <style>
 html {
@@ -34,5 +59,13 @@ html {
   font-size: 34px;
   padding: 30px 0;
   font-weight: bold;
+}
+.header__link__home {
+  text-decoration: none;
+  color: #000;
+}
+.header__link {
+  font-size: 18px;
+  padding-top: 10px;
 }
 </style>

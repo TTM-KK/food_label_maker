@@ -16,14 +16,16 @@
         <p>Preview : {{ this.productIngredients }}</p>
       </div>
       <div class="col-md-6">
-        <div class="title title__decoration">保存方法</div>
-        <input v-model="productSave" />
-        <p>Preview : {{ this.productSave }}</p>
-
+        <div class="title title__decoration">内容量</div>
+        <input v-model="productContent" />
+        <p>Preview : {{ this.productContent }}</p>
         <!-- <div class="title title__decoration">賞味期限</div>
         <input v-model="productLimit" />
         <p>Preview : {{ this.productLimit }}</p> -->
 
+        <div class="title title__decoration">保存方法</div>
+        <input v-model="productSave" />
+        <p>Preview : {{ this.productSave }}</p>
         <div class="title title__decoration">製造者</div>
         <div class="sub__title">1段目</div>
         <input v-model="productOwnerOne" />
@@ -31,14 +33,17 @@
         <div class="sub__title">2段目</div>
         <input v-model="productOwnerSecond" />
         <p>Preview : {{ this.productOwnerSecond }}</p>
+        <div class="sub__title">3段目</div>
+        <input v-model="productOwnerThird" />
+        <p>Preview : {{ this.productOwnerThird }}</p>
 
         <div class="mt-5">
           <div class="title text-center">Control Panel</div>
           <div class="control__box mt-2 text-center">
-            <button class="btn btn-primary mr-2 ml-2" @click="download">
+            <button class="btn btn-primary mr-2 ml-2 mt-2" @click="download">
               PDF Download
             </button>
-            <button class="btn btn-secondary mr-2 ml-2" @click="draw">
+            <button class="btn btn-secondary mr-2 ml-2 mt-2" @click="draw">
               Preview
             </button>
             <button class="btn btn-danger mr-2 ml-2 mt-2" @click="canvasDelete">
@@ -51,10 +56,10 @@
     <div
       id="pdf"
       class="mt-5 mb-5"
-      style="overflow-x: hidden; overflow-y: hidden; height: 600px"
+      style="overflow-x: hidden; overflow-y: hidden; height: 900px"
     >
       <hr />
-      <canvas id="label" width="2523px" height="4067px"></canvas>
+      <canvas id="label_vertical" width="3578.7px" height="2551.2 px"></canvas>
     </div>
   </div>
 </template>
@@ -76,7 +81,9 @@ export default {
       productSave: "",
       productOwnerOne: "",
       productOwnerSecond: "",
+      productOwnerThird: "",
       productLimit: "",
+      productContent: "",
     };
   },
 
@@ -90,107 +97,141 @@ export default {
   // 3%83%A3%E3%83%97%E3%83%81%E3%83%A3%E3%81%97%E3%81%BE%E3%81%99%E3%81%8B%EF%BC%9F/957622337/
   methods: {
     draw() {
-      const canvas = document.getElementById("label");
+      const canvas = document.getElementById("label_vertical");
       if (canvas.getContext) {
         let context = canvas.getContext("2d");
         let i, j;
-        const width = 620;
-        const height = 365;
-        for (i = 0; i <= 3; i++) {
-          for (j = 0; j <= 10; j++) {
+        const width = 501;
+        const height = 826;
+        for (i = 0; i <= 6; i++) {
+          for (j = 0; j <= 2; j++) {
             context.lineWidth = 0.3;
             context.strokeRect(0 + width * i, 0 + height * j, width, height);
 
             // 左列
             context.font = "bold 18pt 'Yu Mincho'";
-            context.fillText("品名", 30 + width * i, 50 + height * j);
+            context.fillText("品名", 32.7 + width * i, 62.2 + height * j);
             context.beginPath();
-            context.moveTo(30 + width * i, 58 + height * j);
-            context.lineTo(width - 30 + width * i, 58 + height * j);
+            context.moveTo(32.7 + width * i, 72.7 + height * j);
+            context.lineTo(width - 32.7 + width * i, 72.7 + height * j);
             context.closePath();
             context.lineWidth = 0.5;
             context.stroke();
 
-            context.fillText("原材料", 30 + width * i, 90 + height * j);
+            context.fillText("原材料", 32.7 + width * i, 102.1 + height * j);
             context.beginPath();
-            context.moveTo(30 + width * i, 200 + height * j);
-            context.lineTo(width - 30 + width * i, 200 + height * j);
+            context.moveTo(32.7 + width * i, 497.1 + height * j);
+            context.lineTo(width - 32.7 + width * i, 497.1 + height * j);
             context.closePath();
             context.lineWidth = 0.5;
             context.stroke();
 
-            context.fillText("保存方法", 30 + width * i, 232 + height * j);
+            context.fillText("内容量", 32.7 + width * i, 522.1 + height * j);
             context.beginPath();
-            context.moveTo(30 + width * i, 245 + height * j);
-            context.lineTo(width - 30 + width * i, 245 + height * j);
+            context.moveTo(32.7 + width * i, 532.1 + height * j);
+            context.lineTo(width - 32.7 + width * i, 532.1 + height * j);
             context.closePath();
             context.lineWidth = 0.5;
             context.stroke();
 
-            context.fillText("賞味期限", 30 + width * i, 277 + height * j);
+            context.fillText("賞味期限", 32.7 + width * i, 560.3 + height * j);
             context.beginPath();
-            context.moveTo(30 + width * i, 290 + height * j);
-            context.lineTo(width - 30 + width * i, 290 + height * j);
+            context.moveTo(32.7 + width * i, 570.3 + height * j);
+            context.lineTo(width - 32.7 + width * i, 570.3 + height * j);
             context.closePath();
             context.lineWidth = 0.5;
             context.stroke();
 
-            context.fillText("製造者", 30 + width * i, 322 + height * j);
+            context.fillText("保存方法", 32.7 + width * i, 600.3 + height * j);
+            context.beginPath();
+            context.moveTo(32.7 + width * i, 678.1 + height * j);
+            context.lineTo(width - 32.7 + width * i, 678.1 + height * j);
+            context.closePath();
+            context.lineWidth = 0.5;
+            context.stroke();
+
+            context.fillText("製造者", 32.7 + width * i, 708.1 + height * j);
 
             // 右列
-            context.font = "bold 22pt 'Yu Mincho'";
+            context.font = "bold 20pt 'Yu Mincho'";
             context.fillText(
               this.productName,
-              160 + width * i,
-              50 + height * j
+              148.2 + width * i,
+              62.2 + height * j
             );
 
-            // 原材料名を22文字毎に分割し配列に格納する。
+            // 原材料名を15文字毎に分割し配列に格納する。
             let productIngredientsTexts = [];
             console.log(this.productIngredients);
             const textLength = this.productIngredients.length;
-            for (let k = 0; k < textLength; k += 22) {
+            for (let k = 0; k < textLength; k += 15) {
               productIngredientsTexts.push(
-                this.productIngredients.slice(k, k + 22)
+                this.productIngredients.slice(k, k + 15)
               );
             }
 
             // テキストを描画
-            context.font = "bold 14pt 'Yu Mincho'";
+            context.font = "bold 16pt 'Yu Mincho'";
             for (let k = 0; k < productIngredientsTexts.length; k += 1) {
               context.fillText(
                 productIngredientsTexts[k],
-                160 + width * i,
-                90 + k * 30 + height * j
+                148.2 + width * i,
+                102.1 + k * 35 + height * j
               );
             }
 
+            // 内容量
             context.fillText(
-              this.productSave,
-              160 + width * i,
-              232 + height * j
+              this.productContent,
+              148.2 + width * i,
+              522.1 + height * j
             );
+
+            // 保存方法
+            let productSaveTexts = [];
+            for (let k = 0; k < this.productSave.length; k += 17) {
+              productSaveTexts.push(this.productSave.slice(k, k + 17));
+            }
+            // テキストを描画
+            context.font = "bold 14pt 'Yu Mincho'";
+            for (let k = 0; k < productSaveTexts.length; k += 1) {
+              context.fillText(
+                productSaveTexts[k],
+                148.2 + width * i,
+                600.3 + k * 30 + height * j
+              );
+            }
+
+            context.font = "bold 16px 'Yu Mincho'";
+            // 賞味期限
             context.fillText(
               this.productLimit,
-              160 + width * i,
-              277 + height * j
+              148.2 + width * i,
+              560.3 + height * j
             );
+
+            // 製造者
             context.fillText(
               this.productOwnerOne,
-              160 + width * i,
-              322 + height * j
+              148.2 + width * i,
+              708.1 + height * j
             );
             context.fillText(
               this.productOwnerSecond,
-              160 + width * i,
-              352 + height * j
+              148.2 + width * i,
+              733.1 + height * j
+            );
+            context.fillText(
+              this.productOwnerThird,
+              148.2 + width * i,
+              758.1 + height * j
             );
           }
         }
       }
     },
     canvasDelete() {
-      const canvas = document.getElementById("label");
+      const canvas = document.getElementById("label_vertical");
       if (canvas.getContext) {
         let context = canvas.getContext("2d");
         context.clearRect(0, 0, canvas.width, canvas.height);
@@ -201,12 +242,12 @@ export default {
       require("jspdf-autotable");
       const html2canvas = require("html2canvas");
 
-      let pdf = new JsPDF("portrait", "mm", "a4");
+      let pdf = new JsPDF("landscape", "mm", "a4");
 
-      let canvas = document.getElementById("label");
+      let canvas = document.getElementById("label_vertical");
       let img = canvas.toDataURL("image/png");
 
-      pdf.addImage(img, "png", 5, 5, 205, 289);
+      pdf.addImage(img, "png", 6, 6, 291, 205);
 
       window.html2canvas = html2canvas;
       pdf.save("food_label.pdf");
